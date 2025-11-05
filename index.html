@@ -6,34 +6,7 @@
   <title>Home</title>
   <link rel="icon" type="image/x-icon" href="https://canvas.instructure.com/favicon.ico">
   
-  <!-- Load Three.js and Vanta.NET -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Arial', sans-serif;
-      color: white;
-    }
-
-    #vanta-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
     #click-overlay {
       position: fixed;
       top: 0;
@@ -41,69 +14,26 @@
       width: 100vw;
       height: 100vh; 
       z-index: 9999; 
-      cursor: pointer;
+      cursor: pointer; 
     }
-
-    .content {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    }
-
-    h3 {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      font-weight: 300;
-    }
-
-    @media (max-width: 768px) {
-      h1 { font-size: 2.5rem; }
-      h3 { font-size: 1rem; }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
     }
   </style>
 </head>
 <body>
-
-  <!-- Vanta Background -->
-  <div id="vanta-bg"></div>
-
-  <!-- Click Overlay -->
   <div id="click-overlay"></div>
 
-  <!-- Main Content -->
-  <div class="content">
-    <h1>LZR-NYX</h1>
-    <h3>Click anywhere to open LZR-NYX..</h3>
-  </div>
+  <h1>LZR-NYX</h1>
+  <h3>Click anywhere to open LZR-NYX..</h3>
 
-  <!-- Vanta.NET Animation Script -->
-  <script>
-    VANTA.NET({
-      el: "#vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color: 0x00ffff,        // Cyan lines (glowing effect)
-      backgroundColor: 0x000000,
-      points: 12,
-      maxDistance: 22,
-      spacing: 16,
-      speed: 1.2
-    });
-  </script>
-
-  <!-- Cloaker Script -->
   <script>
     function openCloaker() {
       try {
@@ -134,6 +64,7 @@
       }
     }
 
+    // This replaces 'window.onload'.
     document.getElementById('click-overlay').addEventListener('click', openCloaker);
   </script>
 </body>
